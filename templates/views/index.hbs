@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="mytabs">
+        <input type="radio" id="tabmap" name="mytabs" checked="checked">
+        <label for="tabmap">Google Map</label>
+        <div class="tab googleScrapper">
+            <h2>Google Map</h2>
+            <form action="/googlemap" method="POST">
+                <div class="input-group">
+                    <span class="input-group-text">Item Name</span>
+                    <input type="text" name="item" aria-label="Item name" id="Item" class="form-control">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Pincode</span>
+                    <input type="text" name="pincode" aria-label="pincode" id="Pincode" class="form-control">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Count</span>
+                    <input type="number" name="Count" aria-label="Count" id="longitude" class="form-control">
+                </div>
+                <input type="submit" class="btn btn-primary" name="Submit" id="submit" value="Map">
+            </form>
+        </div>
+
+        <input type="radio" id="tabfree" name="mytabs">
+        <label for="tabfree">MagicPin</label>
+        <div class="tab googleScrapper url">
+            <h2>MagicPin</h2>
+            <form action="/magicpin" method="POST">
+                <div class="input-group">
+                    <span class="input-group-text">URL</span>
+                    <input type="text" name="Url" aria-label="Item name" id="url" class="form-control">
+                </div>
+                {{!-- <button type="button" class="btn btn-primary" name="submit" id="submit">Submit</button> --}}
+                <input type="submit" class="btn btn-primary" name="Submit" id="submit" value="Magic">
+            </form>
+        </div>
+
+        <input type="radio" id="tabsilver" name="mytabs">
+        <label for="tabsilver">Zomato</label>
+        <div class="tab googleScrapper url">
+            <h2>Zomato</h2>
+            <form action="/zomato" method="POST">
+                <div class="input-group">
+                    <span class="input-group-text">URL</span>
+                    <input type="text" name="Url" aria-label="Item name" id="url" class="form-control">
+                </div>
+                {{!-- <button type="button" class="btn btn-primary" name="submit" id="submit">Submit</button> --}}
+                <input type="submit" class="btn btn-primary" name="Submit" id="submit" value="Zomato">
+            </form>
+        </div>
+
+        <input type="radio" id="tabgold" name="mytabs">
+        <label for="tabgold">Swiggy</label>
+        <div class="tab googleScrapper url">
+            <h2>Swiggy</h2>
+            <form action="/swiggy" method="POST">
+                <div class="input-group">
+                    <span class="input-group-text">URL</span>
+                    <input type="text" name="Url" aria-label="Item name" id="url" class="form-control">
+                </div>
+                {{!-- <button type="button" class="btn btn-primary" name="submit" id="submit">Submit</button> --}}
+                <input type="submit" class="btn btn-primary" name="Submit" id="submit" value="Swiggy">
+            </form>
+            </p>
+        </div>
+    </div>
+</body>
