@@ -2,6 +2,7 @@
 const  JsonToExcel = require("../excel");
 
 module.exports = async function zomatoScrapper(page , Url) {
+    let Excel;
     await page.waitForTimeout(3000);
     await page.goto(`${Url}/order`);
     let BusinessData = await page.evaluate(()=> {
@@ -58,6 +59,6 @@ module.exports = async function zomatoScrapper(page , Url) {
     } else {
         ExcelSheetName = BusinessData.Name;
     }
-    JsonToExcel(result , `${BusinessData.Name}`);
-    return result ;
+    Excel = JsonToExcel(result , `${ExcelSheetName}`);
+    return Excel ;
 }

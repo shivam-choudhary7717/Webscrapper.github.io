@@ -3,13 +3,14 @@ const router = express.Router();
 const puppeteer = require('puppeteer');
 const {extractItems , scrapeItems , goto_links } = require("../Scrapper/googlemap");
 const JsonTo_excel = require('../excel');
+let fs = require('fs');
 
 router.post("/googlemap", async (req, res) => {
     try {
         async function run (){
-            let result;
+            let result , Excel;
             const browser = await puppeteer.launch({
-                headless: false,
+                headless: true,
                 args: ['--no-sandbox', '--disable-setuid-sandbox'],
             });
             const [page] = await browser.pages();
@@ -19,12 +20,18 @@ router.post("/googlemap", async (req, res) => {
             );
             const items = await scrapeItems(page, extractItems, req.body.Count);
             result = await goto_links(page, items);
-            JsonTo_excel(result , req.body.item);
+            Excel = JsonTo_excel(result , req.body.item);
             await browser.close();
-            return result;
+            return Excel;
         };
         let data = await run() ;
-        res.send(data);
+        res.download(data , (err)=>{
+            if(err) {
+                fs.unlinkSync(data);
+                res.send('unable to download excel file');
+            }
+            fs.unlinkSync(data);
+        })
     } catch (error) {
         res.status(400).send(error)
     }

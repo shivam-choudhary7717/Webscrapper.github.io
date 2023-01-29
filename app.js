@@ -2,7 +2,7 @@ const express = require('express');
 const path = require("path");
 const app = express();
 const hbs = require('hbs');
-const port  = 5000;
+const port  = process.env.PORT || 5000;
 const MapRouter = require("./Router/mapRouter");
 const MagicpinRouter = require("./Router/magicpinRouter");
 const ZomatoRouter = require("./Router/zomatoRouter");
@@ -24,7 +24,6 @@ hbs.registerPartials(partials_path);
 app.get("/", (req,res)=> {
     res.render("index");
 })
-
 app.use(MapRouter);
 app.use(MagicpinRouter);
 app.use(ZomatoRouter);

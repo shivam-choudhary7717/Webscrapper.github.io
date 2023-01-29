@@ -2,6 +2,7 @@
 const  JsonToExcel = require("../excel");
 
 module.exports = async function magicPinScrapper(page , Url) {
+    let Excel;
     await page.waitForTimeout(3000);
     await page.goto(`${Url}`);
     let BusinessData = await page.evaluate(()=> {
@@ -48,6 +49,6 @@ module.exports = async function magicPinScrapper(page , Url) {
             }
         }))
     );
-    JsonToExcel(result , `${BusinessData.Name}`);
-    return result ;
+    Excel = JsonToExcel(result , `${BusinessData.Name}`);
+    return Excel ;
 }

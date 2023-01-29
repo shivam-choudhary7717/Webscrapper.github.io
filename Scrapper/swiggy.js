@@ -2,6 +2,7 @@
 const  JsonToExcel = require("../excel");
 
 module.exports = async function swiggyScrapper(page , Url) {
+    let Excel ;
     await page.waitForTimeout(3000);
     await page.goto(`${Url}`);
     await page.waitForTimeout(10000);
@@ -51,6 +52,6 @@ module.exports = async function swiggyScrapper(page , Url) {
     } else {
         ExcelSheetName = BusinessData.Name;
     }
-    JsonToExcel(result , ExcelSheetName);
-    return result ;
+    Excel = JsonToExcel(result , ExcelSheetName);
+    return Excel ;
 }

@@ -1,7 +1,15 @@
 body{
     /* background-image:url("image.png"); */
-    background: linear-gradient(to right, #034f84 , #deeaee);;
+    background: linear-gradient(to right, #034f84 , #deeaee);
     font-family: 'Roboto sans-serif';
+}
+
+h1{
+    background: white;
+    border-radius: 20px;
+    width:400px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .mytabs {
